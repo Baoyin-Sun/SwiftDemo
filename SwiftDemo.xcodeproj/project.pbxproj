@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042E9FC62434210A00808248 /* BasePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasePlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		AFDE1A74242F89E200E7546A /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDE1A77242F89E200E7546A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFDE1A79242F89E200E7546A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 				AFDE1A85242F89E500E7546A /* Info.plist */,
 				AFDE1A7F242F89E500E7546A /* Preview Content */,
 				AFDE1A8B242F8AE200E7546A /* MyPlayground.playground */,
+				042E9FC62434210A00808248 /* BasePlayground.playground */,
 			);
 			path = SwiftDemo;
 			sourceTree = "<group>";
