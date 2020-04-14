@@ -83,6 +83,8 @@ let maxValue = Int.max  // maxValue 为 255，是 UInt8 类型
 //// 打印输出“These two strings are considered equal”
 
 
+
+//数组
 var someInts = [Int]()
 print("someInts is of type [Int] with \(someInts.count) items.")
 // 打印“someInts is of type [Int] with 0 items.”
@@ -176,7 +178,21 @@ for item in shoppingList {
 // Bananas
 
 
+for (index, value) in shoppingList.enumerated() {
+    print("Item \(String(index + 1)): \(value)")
+}
+// Item 1: Six eggs
+// Item 2: Milk
+// Item 3: Flour
+// Item 4: Baking Powder
+// Item 5: Bananas
 
 
+
+
+//集合
+var letters = Set<Character>()
+print("letters is of type Set<Character> with \(letters.count) items.")
+// 打印“letters is of type Set<Character> with 0 items.”
 
 
