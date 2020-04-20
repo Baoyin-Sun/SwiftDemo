@@ -92,12 +92,12 @@ print("Game over!")
 //} while condition
 
 
-let finalSquare = 25
-var board = [Int](repeating: 0, count: finalSquare + 1)
+//let finalSquare = 25
+//var board = [Int](repeating: 0, count: finalSquare + 1)
 board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
 board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
-var square = 0
-var diceRoll = 0
+square = 0
+diceRoll = 0
 
 repeat {
     // 顺着梯子爬上去或者顺着蛇滑下去
@@ -180,8 +180,6 @@ default:
 }
 // 这段代码会报编译错误
 
-
-let anotherCharacter: Character = "a"
 switch anotherCharacter {
 case "a", "A":
     print("The letter A")
@@ -253,7 +251,7 @@ case let (x, y):
 
 
 
-let someCharacter: Character = "e"
+//let someCharacter: Character = "e"
 switch someCharacter {
 case "a", "e", "i", "o", "u":
     print("\(someCharacter) is a vowel")
@@ -310,6 +308,90 @@ if let integerValue = possibleIntegerValue {
     print("An integer value could not be found for \(numberSymbol).")
 }
 // 输出“The integer value of 三 is 3.”
+
+
+
+let integerToDescribe = 5
+var description = "The number \(integerToDescribe) is"
+switch integerToDescribe {
+case 2, 3, 5, 7, 11, 13, 17, 19:
+    description += " a prime number, and also"
+    fallthrough
+default:
+    description += " an integer."
+}
+print(description)
+// 输出“The number 5 is a prime number, and also an integer.”
+
+
+//label name: while condition {
+//    statements
+//}
+
+
+gameLoop: while square != finalSquare {
+    diceRoll += 1
+    if diceRoll == 7 { diceRoll = 1 }
+    switch square + diceRoll {
+    case finalSquare:
+        // 骰子数刚好使玩家移动到最终的方格里，游戏结束。
+        break gameLoop
+    case let newSquare where newSquare > finalSquare:
+        // 骰子数将会使玩家的移动超出最后的方格，那么这种移动是不合法的，玩家需要重新掷骰子
+        continue gameLoop
+    default:
+        // 合法移动，做正常的处理
+        square += diceRoll
+        square += board[square]
+    }
+}
+print("Game over!")
+
+
+
+func greet(person: [String: String]) {
+    guard let name = person["name"] else {
+        return
+    }
+
+    print("Hello \(name)!")
+
+    guard let location = person["location"] else {
+        print("I hope the weather is nice near you.")
+        return
+    }
+
+    print("I hope the weather is nice in \(location).")
+}
+
+greet(person: ["name": "John"])
+// 输出“Hello John!”
+// 输出“I hope the weather is nice near you.”
+greet(person: ["name": "Jane", "location": "Cupertino"])
+// 输出“Hello Jane!”
+// 输出“I hope the weather is nice in Cupertino.”
+/*
+如果 guard 语句的条件被满足，则继续执行 guard 语句大括号后的代码。将变量或者常量的可选绑定作为 guard 语句的条件，都可以保护 guard 语句后面的代码。
+如果条件不被满足，在 else 分支上的代码就会被执行。这个分支必须转移控制以退出 guard 语句出现的代码段。它可以用控制转移语句如 return、break、continue 或者 throw 做这件事，或者调用一个不返回的方法或函数，例如 fatalError()。
+*/
+
+
+if #available(iOS 10, macOS 10.12, *) {
+    // 在 iOS 使用 iOS 10 的 API, 在 macOS 使用 macOS 10.12 的 API
+} else {
+    // 使用先前版本的 iOS 和 macOS 的 API
+}
+
+
+/*
+if #available(平台名称 版本号, ..., *) {
+    APIs 可用，语句将执行
+} else {
+    APIs 不可用，语句将不执行
+}
+*/
+
+
 
 
 
