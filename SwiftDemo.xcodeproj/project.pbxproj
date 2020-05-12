@@ -20,6 +20,8 @@
 		0405BEE5246585C100FA44D1 /* EnumeratePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = EnumeratePlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0405D13B2446AB0B00780738 /* ControlFlowPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ControlFlowPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		042E9FC62434210A00808248 /* BasePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BasePlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		044BB9C0246A8306009B4C72 /* ClassAndStructPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassAndStructPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		044BB9C1246AAF7D009B4C72 /* PropertyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PropertyPlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		04EBF9A7244DC25E00DCF095 /* ClosurePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClosurePlayground.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		AFDE1A74242F89E200E7546A /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDE1A77242F89E200E7546A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,8 @@
 				040555962447EF7600DA5815 /* FunctionPlayground.playground */,
 				04EBF9A7244DC25E00DCF095 /* ClosurePlayground.playground */,
 				0405BEE5246585C100FA44D1 /* EnumeratePlayground.playground */,
+				044BB9C0246A8306009B4C72 /* ClassAndStructPlayground.playground */,
+				044BB9C1246AAF7D009B4C72 /* PropertyPlayground.playground */,
 			);
 			path = SwiftDemo;
 			sourceTree = "<group>";
