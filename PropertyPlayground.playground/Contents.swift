@@ -92,9 +92,11 @@ print(manager.importer.fileName)
 struct Point {
     var x = 0.0, y = 0.0
 }
+
 struct Size {
     var width = 0.0, height = 0.0
 }
+
 struct Rect {
     var origin = Point()
     var size = Size()
@@ -110,17 +112,20 @@ struct Rect {
         }
     }
 }
-var square = Rect(origin: Point(x: 0.0, y: 0.0),
-    size: Size(width: 10.0, height: 10.0))
+
+var square = Rect(origin: Point(x: 0.0, y: 0.0), size: Size(width: 10.0, height: 10.0))
 let initialSquareCenter = square.center
 square.center = Point(x: 15.0, y: 15.0)
 print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 // 打印“square.origin is now at (10.0, 10.0)”
+
+
 //这个例子定义了 3 个结构体来描述几何形状：
 //Point 封装了一个 (x, y) 的坐标
 //Size 封装了一个 width 和一个 height
 //Rect 表示一个有原点和尺寸的矩形
 //Rect 也提供了一个名为 center 的计算属性。一个 Rect 的中心点可以从 origin（原点）和 size（大小）算出，所以不需要将中心点以 Point 类型的值来保存。Rect 的计算属性 center 提供了自定义的 getter 和 setter 来获取和设置矩形的中心点，就像它有一个存储属性一样。
+
 //上述例子中创建了一个名为 square 的 Rect 实例，初始值原点是 (0, 0)，宽度高度都是 10。如下图中蓝色正方形所示。
 //square 的 center 属性可以通过点运算符（square.center）来访问，这会调用该属性的 getter 来获取它的值。跟直接返回已经存在的值不同，getter 实际上通过计算然后返回一个新的 Point 来表示 square 的中心点。如代码所示，它正确返回了中心点 (5, 5)。
 //center 属性之后被设置了一个新的值 (15, 15)，表示向右上方移动正方形到如下图橙色正方形所示的位置。设置属性 center 的值会调用它的 setter 来修改属性 origin 的 x 和 y 的值，从而实现移动正方形到新的位置。
@@ -129,52 +134,59 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 
 //简化 Setter 声明
 //如果计算属性的 setter 没有定义表示新值的参数名，则可以使用默认名称 newValue。下面是使用了简化 setter 声明的 Rect 结构体代码：
-//struct AlternativeRect {
-//    var origin = Point()
-//    var size = Size()
-//    var center: Point {
-//        get {
-//            let centerX = origin.x + (size.width / 2)
-//            let centerY = origin.y + (size.height / 2)
-//            return Point(x: centerX, y: centerY)
-//        }
-//        set {
-//            origin.x = newValue.x - (size.width / 2)
-//            origin.y = newValue.y - (size.height / 2)
-//        }
-//    }
-//}
+struct AlternativeRect {
+    var origin = Point()
+    var size = Size()
+    var center: Point {
+        get {
+            let centerX = origin.x + (size.width / 2)
+            let centerY = origin.y + (size.height / 2)
+            return Point(x: centerX, y: centerY)
+        }
+        set {
+            origin.x = newValue.x - (size.width / 2)
+            origin.y = newValue.y - (size.height / 2)
+        }
+    }
+}
+
+
 //简化 Getter 声明
 //如果整个 getter 是单一表达式，getter 会隐式地返回这个表达式结果。下面是另一个版本的 Rect 结构体，用到了简化的 getter 和 setter 声明：
-//struct CompactRect {
-//    var origin = Point()
-//    var size = Size()
-//    var center: Point {
-//        get {
-//            Point(x: origin.x + (size.width / 2),
-//                  y: origin.y + (size.height / 2))
-//        }
-//        set {
-//            origin.x = newValue.x - (size.width / 2)
-//            origin.y = newValue.y - (size.height / 2)
-//        }
-//    }
-//}
+struct CompactRect {
+    var origin = Point()
+    var size = Size()
+    var center: Point {
+        get {
+            Point(x: origin.x + (size.width / 2),
+                  y: origin.y + (size.height / 2))
+        }
+        set {
+            origin.x = newValue.x - (size.width / 2)
+            origin.y = newValue.y - (size.height / 2)
+        }
+    }
+}
+
 //在 getter 中忽略 return 与在函数中忽略 return 的规则相同，请参考 隐式返回的函数。
+
+
+
 //只读计算属性
 //只有 getter 没有 setter 的计算属性叫只读计算属性。只读计算属性总是返回一个值，可以通过点运算符访问，但不能设置新的值。
 //注意
 //必须使用 var 关键字定义计算属性，包括只读计算属性，因为它们的值不是固定的。let 关键字只用来声明常量属性，表示初始化后再也无法修改的值。
 //只读计算属性的声明可以去掉 get 关键字和花括号：
-//struct Cuboid {
-//    var width = 0.0, height = 0.0, depth = 0.0
-//    var volume: Double {
-//        return width * height * depth
-//    }
-//}
-//let fourByFiveByTwo = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
-//print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
-//// 打印“the volume of fourByFiveByTwo is 40.0”
+struct Cuboid {
+    var width = 0.0, height = 0.0, depth = 0.0
+    var volume: Double {
+        return width * height * depth
+    }
+}
+let fourByFiveByTwo = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
+print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
+// 打印“the volume of fourByFiveByTwo is 40.0”
+
 //这个例子定义了一个名为 Cuboid 的结构体，表示三维空间的立方体，包含 width、height 和 depth 属性。结构体还有一个名为 volume 的只读计算属性用来返回立方体的体积。为 volume 提供 setter 毫无意义，因为无法确定如何修改 width、height 和 depth 三者的值来匹配新的 volume。然而，Cuboid 提供一个只读计算属性来让外部用户直接获取体积是很有用的。
 //属性观察器
 //属性观察器监控和响应属性值的变化，每次属性被设置值的时候都会调用属性观察器，即使新值和当前值相同的时候也不例外。

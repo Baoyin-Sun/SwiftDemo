@@ -381,7 +381,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 9ZG6QEK4L9;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -403,7 +403,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = 9ZG6QEK4L9;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SwiftDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftDemo/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
