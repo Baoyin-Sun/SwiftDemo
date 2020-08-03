@@ -200,20 +200,20 @@ print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
 //在父类初始化方法调用之后，在子类构造器中给父类的属性赋值时，会调用父类属性的 willSet 和 didSet 观察器。而在父类初始化方法调用之前，给子类的属性赋值时不会调用子类属性的观察器。
 //有关构造器代理的更多信息，请参考 值类型的构造器代理 和 类的构造器代理。
 //下面是一个 willSet 和 didSet 实际运用的例子，其中定义了一个名为 StepCounter 的类，用来统计一个人步行时的总步数。这个类可以跟计步器或其他日常锻炼的统计装置的输入数据配合使用。
-//class StepCounter {
-//    var totalSteps: Int = 0 {
-//        willSet(newTotalSteps) {
-//            print("将 totalSteps 的值设置为 \(newTotalSteps)")
-//        }
-//        didSet {
-//            if totalSteps > oldValue  {
-//                print("增加了 \(totalSteps - oldValue) 步")
-//            }
-//        }
-//    }
-//}
-//let stepCounter = StepCounter()
-//stepCounter.totalSteps = 200
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            print("将 totalSteps 的值设置为 \(newTotalSteps)")
+        }
+        didSet {
+            if totalSteps > oldValue  {
+                print("增加了 \(totalSteps - oldValue) 步")
+            }
+        }
+    }
+}
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 200
 //// 将 totalSteps 的值设置为 200
 //// 增加了 200 步
 //stepCounter.totalSteps = 360
